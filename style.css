@@ -1,0 +1,87 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to top, #0b3d91, #1d2951);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    transition: background-color 1s ease;
+}
+
+.flower-container {
+    display: flex;
+    gap: 50px;
+}
+
+.flower {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.petal {
+    position: absolute;
+    width: 60px;
+    height: 120px;
+    background: linear-gradient(45deg, #ff6347, #ffcccb);
+    border-radius: 60px 60px 0 0;
+    transform-origin: bottom center;
+    transform: scale(0); /* Inicia pequeño */
+    transition: transform 1s ease-in-out, background-color 1s ease-in-out;
+}
+
+.petal1 {
+    transform: rotate(0deg) translateY(-60px);
+}
+
+.petal2 {
+    transform: rotate(90deg) translateY(-60px);
+}
+
+.petal3 {
+    transform: rotate(180deg) translateY(-60px);
+}
+
+.petal4 {
+    transform: rotate(270deg) translateY(-60px);
+}
+
+.center {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #ffd700;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6); /* Brillo suave */
+    transition: box-shadow 1s ease-in-out, background-color 1s ease-in-out;
+}
+
+body.loaded .petal {
+    transform: scale(1);
+}
+
+.flower:hover .center {
+    box-shadow: 0 0 25px rgba(255, 215, 0, 1); /* Más brillo */
+}
+
+.poem-container {
+    margin-top: 30px;
+    text-align: center;
+}
+
+#poem {
+    font-size: 1.5em;
+    font-style: italic;
+    color: #fff;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+body.loaded #poem {
+    opacity: 1;
+}
